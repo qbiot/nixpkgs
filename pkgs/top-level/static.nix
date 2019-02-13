@@ -163,4 +163,7 @@ in {
     gssSupport = false;
   };
 
+  nix = super.nix.overrideAttrs (_: {
+    NIX_LDFLAGS = "-lssl -lbrotlicommon -lssh2 -lz -lnghttp2 -lcrypto";
+  });
 }
