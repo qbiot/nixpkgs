@@ -168,17 +168,17 @@ in rec {
     inherit storeDir stateDir confDir boehmgc;
   };
 
-  nixStable = callPackage common rec {
-    name = "nix-2.2";
-    src = fetchurl {
-      url = "http://nixos.org/releases/nix/${name}/${name}.tar.xz";
-      sha256 = "63238d00d290b8a93925891fc9164439d3941e2ccc569bf7f7ca32f53c3ec0c7";
-    };
+#  nixStable = callPackage common rec {
+#    name = "nix-2.2";
+#    src = fetchurl {
+#      url = "http://nixos.org/releases/nix/${name}/${name}.tar.xz";
+#      sha256 = "63238d00d290b8a93925891fc9164439d3941e2ccc569bf7f7ca32f53c3ec0c7";
+#    };
+#
+#    inherit storeDir stateDir confDir boehmgc;
+#  };
 
-    inherit storeDir stateDir confDir boehmgc;
-  };
-
-  nixUnstable = lib.lowPrio (callPackage common rec {
+  nixStable = lib.lowPrio (callPackage common rec {
     name = "nix-2.2-fix";
     src = fetchFromGitHub {
       owner = "qbiot";
